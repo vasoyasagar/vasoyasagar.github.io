@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://vasoyasagar.github.io/blog/sitemap-index.xml
