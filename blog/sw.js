@@ -2835,7 +2835,7 @@ var CacheableResponsePlugin = class {
 //#endregion
 //#region src/sw.js
 var BASE = "/blog/";
-precacheAndRoute([{"revision":"a9c99577a9b1aa3838f3944704eaf1d5","url":"favicon.svg"},{"revision":null,"url":"_astro/workbox-window.prod.es5.Bd17z0YL.js"},{"revision":null,"url":"_astro/index.NZguX5W2.css"},{"revision":null,"url":"_astro/ec.q8qdp.css"},{"revision":null,"url":"_astro/ec.0vx5m.js"},{"revision":null,"url":"_astro/_slug_.CVUM6riC.css"},{"revision":null,"url":"_astro/PwaUpdate.astro_astro_type_script_index_0_lang.6SWZgtFu.js"},{"revision":null,"url":"_astro/BaseLayout.C4hDxGP8.css"},{"revision":"b7e1462b3631f03cce51c642b69f4bdd","url":"offline/index.html"},{"revision":"30b09e4401cbfda5a4a978b267ed9c52","url":"pwa-64x64.png"},{"revision":"6f6ab17bc5b3dce07667e46ddbc90c5a","url":"pwa-512x512.png"},{"revision":"a79201ce773412e6a1f353b4913f00ac","url":"pwa-192x192.png"},{"revision":"4d4eb4ec554d3e34149843dceae65f11","url":"maskable-icon-512x512.png"},{"revision":"a97c04dd8b9a2b7e316ff8caa9e1152b","url":"apple-touch-icon-180x180.png"},{"revision":"41b93ada937177253b988b0b38d2d663","url":"favicon.ico"},{"revision":"b7e1462b3631f03cce51c642b69f4bdd","url":"offline/"},{"revision":"34e0068cc30a1d71ccc8e175bc3fa7ff","url":"manifest.webmanifest"}], {
+precacheAndRoute([{"revision":"a9c99577a9b1aa3838f3944704eaf1d5","url":"favicon.svg"},{"revision":null,"url":"_astro/workbox-window.prod.es5.Bd17z0YL.js"},{"revision":null,"url":"_astro/theme.Bp4wlPWa.js"},{"revision":null,"url":"_astro/skyline-math.kuXqNn_q.js"},{"revision":null,"url":"_astro/preload-helper.DiYNZRqW.js"},{"revision":null,"url":"_astro/lazy.BBe5hN_1.js"},{"revision":null,"url":"_astro/index.DwjCFl4l.css"},{"revision":null,"url":"_astro/ec.q8qdp.css"},{"revision":null,"url":"_astro/ec.0vx5m.js"},{"revision":null,"url":"_astro/_slug_.BSndwN-3.css"},{"revision":null,"url":"_astro/Skyline.astro_astro_type_script_index_0_lang.BieY2TSE.js"},{"revision":null,"url":"_astro/PwaUpdate.astro_astro_type_script_index_0_lang.lUitz0Yh.js"},{"revision":null,"url":"_astro/HeroSkyline.astro_astro_type_script_index_0_lang.CGMScuVx.js"},{"revision":null,"url":"_astro/ConceptGraph.astro_astro_type_script_index_0_lang.DvyTBtJT.js"},{"revision":null,"url":"_astro/BaseLayout.C4hDxGP8.css"},{"revision":"a731097ab29e574aeb2599bd8e22c59d","url":"offline/index.html"},{"revision":"30b09e4401cbfda5a4a978b267ed9c52","url":"pwa-64x64.png"},{"revision":"6f6ab17bc5b3dce07667e46ddbc90c5a","url":"pwa-512x512.png"},{"revision":"a79201ce773412e6a1f353b4913f00ac","url":"pwa-192x192.png"},{"revision":"4d4eb4ec554d3e34149843dceae65f11","url":"maskable-icon-512x512.png"},{"revision":"a97c04dd8b9a2b7e316ff8caa9e1152b","url":"apple-touch-icon-180x180.png"},{"revision":"41b93ada937177253b988b0b38d2d663","url":"favicon.ico"},{"revision":"a731097ab29e574aeb2599bd8e22c59d","url":"offline/"},{"revision":"34e0068cc30a1d71ccc8e175bc3fa7ff","url":"manifest.webmanifest"}], {
 	directoryIndex: "index.html",
 	cleanURLs: true
 });
@@ -2855,6 +2855,10 @@ registerRoute(new NavigationRoute(async (params) => {
 		return await matchPrecache(`${BASE}offline/`) ?? Response.error();
 	}
 }, { denylist: [/\/pagefind\//, /\.(xml|txt)$/] }));
+registerRoute(({ request, url }) => request.destination === "script" && /\/_astro\/(three|skyline|graph3d)\./.test(url.pathname), new CacheFirst({
+	cacheName: "three",
+	plugins: [new CacheableResponsePlugin({ statuses: [0, 200] }), new ExpirationPlugin({ maxEntries: 4 })]
+}));
 registerRoute(({ request }) => request.destination === "font", new CacheFirst({
 	cacheName: "fonts",
 	plugins: [new CacheableResponsePlugin({ statuses: [0, 200] }), new ExpirationPlugin({

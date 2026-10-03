@@ -1,0 +1,1 @@
+var e=()=>matchMedia(`(prefers-reduced-motion: reduce)`).matches;function t(){try{return!!document.createElement(`canvas`).getContext(`webgl2`)}catch{return!1}}function n(e,t,n=`200px`){if(!(`IntersectionObserver`in window))return t();let r=new IntersectionObserver(e=>{e.some(e=>e.isIntersecting)&&(r.disconnect(),t())},{rootMargin:n});r.observe(e)}export{e as n,n as r,t};

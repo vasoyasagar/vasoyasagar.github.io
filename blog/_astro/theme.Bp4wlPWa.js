@@ -1,0 +1,1 @@
+import{o as e}from"./three.6OXSagPs.js";var t=document.createElement(`canvas`).getContext(`2d`,{willReadFrequently:!0});function n(n){let r=getComputedStyle(document.documentElement).getPropertyValue(n).trim();t.clearRect(0,0,1,1),t.fillStyle=r,t.fillRect(0,0,1,1);let[i,a,o]=t.getImageData(0,0,1,1).data;return new e().setRGB(i/255,a/255,o/255,`srgb`)}export{n as t};
