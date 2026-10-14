@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Envoyer Spike</title>
+    <script type="module" crossorigin src="/transfer/assets/spike-CwgP-dQq.js"></script>
+    <link rel="stylesheet" crossorigin href="/transfer/assets/spike-DENpI1hT.css">
+  </head>
+  <body>
+    <header>
+      <h1>Envoyer · Phase 0 network test</h1>
+      <p class="muted">Open this page on 2–3 devices on the same Wi-Fi. Run 1–2 on each device, then use 3–4 between devices.</p>
+      <div class="row">
+        <span>This device: <b id="me"></b></span>
+      </div>
+      <label class="row">Network label <input id="netLabel" placeholder="e.g. Home Wi-Fi, Office Wi-Fi" /></label>
+      <div id="features" class="muted small"></div>
+    </header>
+
+    <section>
+      <h2>1 · Public IP probe</h2>
+      <p class="muted small">All devices on the same Wi-Fi should show the same IPv4. Auto-discovery depends on this.</p>
+      <button id="runIp">Run</button>
+      <pre id="ipOut"></pre>
+    </section>
+
+    <section>
+      <h2>2 · MQTT brokers</h2>
+      <p class="muted small">Connects to each public broker over wss and times a message round trip.</p>
+      <button id="runBrokers">Run</button>
+      <pre id="brokerOut"></pre>
+    </section>
+
+    <section>
+      <h2>3 · Room and LAN-only connection</h2>
+      <p class="muted small">Join the same room on every device. Pick a peer and Connect. The connection uses <code>iceServers: []</code>, so it can only succeed on the local network.</p>
+      <div class="row wrap">
+        <select id="broker"></select>
+        <select id="mode">
+          <option value="net">Network (auto, by public IP)</option>
+          <option value="code">Code</option>
+        </select>
+        <input id="code" inputmode="numeric" maxlength="6" placeholder="6-digit code" hidden />
+        <button id="join">Join room</button>
+        <button id="leave" hidden>Leave</button>
+      </div>
+      <div id="roomStatus" class="muted small"></div>
+      <ul id="peers"></ul>
+    </section>
+
+    <section>
+      <h2>4 · Throughput</h2>
+      <p class="muted small">Sends generated data to a connected peer. The receiver picks where the bytes go.</p>
+      <div class="row wrap">
+        <label>Size <select id="benchSize"><option>100</option><option selected>500</option><option>2000</option></select> MB</label>
+        <label>When receiving, write to <select id="sink"><option value="discard">nowhere (network only)</option><option value="opfs">OPFS (disk)</option></select></label>
+      </div>
+      <p class="muted small">Use the "Send" button next to a connected peer in section 3.</p>
+      <pre id="benchOut"></pre>
+    </section>
+
+    <section>
+      <h2>5 · OPFS disk write (this device only)</h2>
+      <p class="muted small">Checks a phone can write a large file to disk without the tab crashing.</p>
+      <div class="row wrap">
+        <label>Size <select id="opfsSize"><option>500</option><option selected>2000</option></select> MB</label>
+        <button id="runOpfs">Run</button>
+      </div>
+      <pre id="opfsOut"></pre>
+    </section>
+
+    <section>
+      <h2>6 · Save / share sheet</h2>
+      <p class="muted small">Makes a test image in OPFS and opens the share sheet. On iPhone, try "Save Image" and "Save to Files".</p>
+      <div class="row wrap">
+        <button id="shareImg">Share test image</button>
+        <button id="shareBig">Share last big file</button>
+        <button id="downloadImg">Download test image</button>
+      </div>
+      <pre id="shareOut"></pre>
+    </section>
+
+    <section>
+      <h2>Report</h2>
+      <p class="muted small">Copy and paste into <code>docs/SPIKE-RESULTS.md</code> (or send it to Claude).</p>
+      <button id="copyReport">Copy report</button>
+      <pre id="report"></pre>
+    </section>
+
+    <section>
+      <h2>Log</h2>
+      <pre id="log" class="log"></pre>
+    </section>
+
+  </body>
+</html>
