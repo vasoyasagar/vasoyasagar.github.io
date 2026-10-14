@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Envoyer Spike</title>
-    <script type="module" crossorigin src="/transfer/assets/spike-CwgP-dQq.js"></script>
+    <script type="module" crossorigin src="/transfer/assets/spike-Bbo8RnYF.js"></script>
     <link rel="stylesheet" crossorigin href="/transfer/assets/spike-DENpI1hT.css">
   </head>
   <body>
@@ -34,7 +34,7 @@
 
     <section>
       <h2>3 · Room and LAN-only connection</h2>
-      <p class="muted small">Join the same room on every device. Pick a peer and Connect. The connection uses <code>iceServers: []</code>, so it can only succeed on the local network.</p>
+      <p class="muted small">Join the same room on every device. Keep <b>All brokers</b> (the Phase 1 behavior). Pick a peer and Connect. The connection uses <code>iceServers: []</code>, so it can only succeed on the local network.</p>
       <div class="row wrap">
         <select id="broker"></select>
         <select id="mode">
@@ -56,7 +56,7 @@
         <label>Size <select id="benchSize"><option>100</option><option selected>500</option><option>2000</option></select> MB</label>
         <label>When receiving, write to <select id="sink"><option value="discard">nowhere (network only)</option><option value="opfs">OPFS (disk)</option></select></label>
       </div>
-      <p class="muted small">Use the "Send" button next to a connected peer in section 3.</p>
+      <p class="muted small">Use "Ping ×20" and "Send" next to a connected peer in section 3. Run Ping ×20 before sending.</p>
       <pre id="benchOut"></pre>
     </section>
 
