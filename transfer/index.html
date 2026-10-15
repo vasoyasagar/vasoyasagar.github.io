@@ -12,9 +12,13 @@
     <meta name="apple-mobile-web-app-title" content="Envoyer" />
     <meta name="apple-mobile-web-app-status-bar-style" content="default" />
     <title>Envoyer</title>
-    <script type="module" crossorigin src="/transfer/assets/main-DZv-XcsL.js"></script>
+    <script>
+      // Saved light/dark choice, applied before first paint (src/theme.js)
+      try { var t = localStorage.getItem('envoyer.theme'); if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t } catch (e) {}
+    </script>
+    <script type="module" crossorigin src="/transfer/assets/main-C5z_Hg5c.js"></script>
     <link rel="modulepreload" crossorigin href="/transfer/assets/mqtt.esm-dZMhn4J7.js">
-    <link rel="stylesheet" crossorigin href="/transfer/assets/main-IX89r4Vk.css">
+    <link rel="stylesheet" crossorigin href="/transfer/assets/main-B1b-E4WI.css">
   <link rel="manifest" href="/transfer/manifest.webmanifest"></head>
   <body>
     <div id="root"></div>
