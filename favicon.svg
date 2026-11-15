@@ -1,10 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
   <defs>
-    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+    <linearGradient id="g" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="64" y2="64">
       <stop offset="0" stop-color="#7c5cff"/>
       <stop offset="1" stop-color="#ff5fa2"/>
     </linearGradient>
+    <clipPath id="r"><rect width="64" height="64" rx="16"/></clipPath>
   </defs>
-  <rect width="64" height="64" rx="16" fill="url(#g)"/>
+  <g clip-path="url(#r)"><rect width="64" height="64" fill="url(#g)"/></g>
   <text x="32" y="46" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="42" fill="#fff">S</text>
 </svg>
