@@ -1,0 +1,1 @@
+import{t as e}from"./apps.CKY6NP2l.js";e();

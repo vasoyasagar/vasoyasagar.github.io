@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /expense/
+Disallow: /excel/
+
+Sitemap: https://vasoyasagar.github.io/sitemap.xml
+Sitemap: https://vasoyasagar.github.io/blog/sitemap-index.xml
