@@ -3,7 +3,7 @@
 // else go straight to the network (no respondWith), so apps behave as if it didn't exist.
 // VERSION and PRECACHE are filled in at build time (integrations/service-worker.mjs).
 
-const VERSION = "39d664ebb356";
+const VERSION = "12ae5c1d012a";
 const PRECACHE = ["/","/_home/404.astro_astro_type_script_index_0_lang.C40pxmOD.js","/_home/Apps.astro_astro_type_script_index_0_lang.BT-WJz7G.js","/_home/apps.CKY6NP2l.js","/_home/Base.BLogrUQH.css","/_home/CommandPalette.astro_astro_type_script_index_0_lang.BlacO29y.js","/_home/fuzzy.Bf_E0eRO.js","/_home/geist-latin-wght-normal.BgDaEnEv.woff2","/_home/geist-mono-latin-wght-normal.XN7g48iV.woff2","/_home/Header.astro_astro_type_script_index_0_lang.Bl6k1_Uk.js","/_home/index.BOtkclQf.css","/_home/instrument-serif-latin-400-italic.DKMiL14s.woff2","/_home/live-posts.C5qtQ1oI.js","/_home/theme.CiGLF9Ht.js","/_home/Writing.astro_astro_type_script_index_0_lang.CkQNTz_n.js","/404.html","/apple-touch-icon-180x180.png","/favicon.svg","/manifest.webmanifest","/maskable-icon-512x512.png","/pwa-192x192.png","/pwa-512x512.png","/pwa-64x64.png"];
 const CACHE = `home-${VERSION}`;
 const OWNED = new Set([...PRECACHE, '/index.html']);
